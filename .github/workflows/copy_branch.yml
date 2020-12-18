@@ -1,14 +1,12 @@
 # Duplicates default main branch to the old master branch
 
-name: Duplicates main to old master branch
+name: Duplicates dev to old master branch
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the main branch
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches: [ dev ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -29,5 +27,5 @@ jobs:
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git merge origin/master
+          git merge origin/dev
           git push
