@@ -1,23 +1,20 @@
 package me.donnie.android.apps.general.ui.login
 
 import android.os.Bundle
-import android.view.View
-import androidx.fragment.app.Fragment
 import me.donnie.android.apps.general.R
 import me.donnie.android.apps.general.databinding.FragmentLoginBinding
-import me.donnie.android.apps.general.extension.binding
+import me.donnie.android.apps.general.ui.base.DataBindingFragment
 
 /**
  * @author: zhongzhan
  * @email: zhongzhan@weeget.cn
  * @date: 2020/12/21 14:49
  */
-class LoginFragment : Fragment(R.layout.fragment_login) {
+class LoginFragment : DataBindingFragment<FragmentLoginBinding>() {
 
-    private val binding: FragmentLoginBinding by binding()
+    override fun getLayoutResId(): Int = R.layout.fragment_login
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun initView(savedInstanceState: Bundle?) {
 
     }
-
 }
