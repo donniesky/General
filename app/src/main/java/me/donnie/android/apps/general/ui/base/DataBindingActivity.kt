@@ -14,9 +14,6 @@ abstract class DataBindingActivity<B : ViewDataBinding> : AbstractActivity() {
 
     lateinit var binding: B
 
-    @LayoutRes
-    abstract fun getLayoutResId(): Int
-
     override fun initView(savedInstanceState: Bundle?) {
         binding = DataBindingUtil.setContentView(this, getLayoutResId())
         binding.lifecycleOwner = this

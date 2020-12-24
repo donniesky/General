@@ -8,5 +8,31 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="dark_30_percent">#4d000000</color>
+    <color name="dark_50_percent">#80000000</color>
+    <color name="dark_70_percent">#b3000000</color>
+
     <color name="ic_launcher_background">#1b1f23</color>
+
+    <color name="colorPrimary">@color/purple_700</color>
+    <color name="colorSecondary">@color/teal_200</color>
+    <color name="colorAccent">@color/teal_200</color>
+
+    <color name="systemWindowScrim">#44000000</color>
+
+    <color name="colorPrimaryLight">@color/purple_500</color>
+    <color name="colorPrimaryDark">@color/purple_200</color>
+    <color name="colorPrimaryDayNight">@color/colorPrimaryLight</color>
+
+    <color name="colorSurfaceLight">@color/white</color>
+    <color name="colorSurfaceDark">#202124</color>
+    <color name="colorSurfaceDayNight">@color/colorSurfaceLight</color>
+
+    <color name="statusBarBackgroundLight">@color/systemWindowScrim</color>
+    <color name="statusBarBackgroundDark">@color/colorSurfaceDark</color>
+    <color name="statusBarBackgroundDayNight">@color/statusBarBackgroundLight</color>
+
+    <color name="systemWindowScrimLight">@color/systemWindowScrim</color>
+    <color name="systemWindowScrimDark">@color/systemWindowScrim</color>
+    <color name="systemWindowScrimDayNight">@color/systemWindowScrimLight</color>
 </resources>

@@ -27,9 +27,6 @@ abstract class DataBindingFragment<B : ViewDataBinding> : AbstractFragment() {
         return binding.root
     }
 
-    @LayoutRes
-    abstract fun getLayoutResId(): Int
-
     override fun onDestroyView() {
         binding.unbind()
         super.onDestroyView()

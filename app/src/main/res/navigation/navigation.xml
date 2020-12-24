@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/splash_graph"
+    tools:ignore="UnusedNavigation">
+
+    <navigation
+        android:id="@+id/splash_graph"
+        app:startDestination="@+id/splash_fragment">
+
+        <action
+            android:id="@+id/splash_to_logged_out"
+            app:destination="@+id/logged_out_graph"
+            app:popUpTo="@id/splash_graph"
+            app:popUpToInclusive="true"/>
+
+        <action
+            android:id="@+id/splash_to_logged_in"
+            app:destination="@+id/logged_in_graph"
+            app:popUpTo="@id/splash_graph"
+            app:popUpToInclusive="true">
+
+            <argument
+                android:name="username"
+                app:argType="string"
+                app:nullable="true"/>
+
+        </action>
+
+        <fragment
+            android:id="@+id/splash_fragment"
+            android:name="me.donnie.android.apps.general.ui.splash.SplashFragment"
+            tools:layout="@layout/fragment_splash"/>
+
+    </navigation>
+
+    <navigation
+        android:id="@+id/logged_in_graph"
+        app:startDestination="@+id/main_fragment">
+
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true"/>
+
+        <action
+            android:id="@+id/logged_in_to_logged_out"
+            app:destination="@+id/logged_out_graph"
+            app:enterAnim="@anim/slide_in_from_left"
+            app:exitAnim="@anim/slide_out_to_right"
+            app:popEnterAnim="@anim/slide_out_to_left"
+            app:popExitAnim="@anim/slide_in_from_left"
+            app:popUpTo="@id/logged_in_graph"
+            app:popUpToInclusive="true"/>
+
+        <fragment
+            android:id="@+id/main_fragment"
+            android:name="me.donnie.android.apps.general.ui.main.MainFragment"
+            tools:layout="@layout/fragment_main">
+
+            <argument
+                android:name="username"
+                app:argType="string"
+                app:nullable="true"/>
+
+        </fragment>
+
+    </navigation>
+
+    <navigation
+        android:id="@+id/logged_out_graph"
+        app:startDestination="@+id/login_fragment">
+
+        <action
+            android:id="@+id/logged_out_to_logged_in"
+            app:destination="@id/logged_in_graph"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit"
+            app:popUpTo="@id/logged_out_graph"
+            app:popUpToInclusive="true">
+            <argument
+                android:name="username"
+                app:argType="string"
+                app:nullable="true" />
+        </action>
+
+        <fragment
+            android:id="@+id/login_fragment"
+            android:name="me.donnie.android.apps.general.ui.login.LoginFragment"
+            tools:layout="@layout/fragment_login"/>
+
+        <!--TODO register graph-->
+
+    </navigation>
+
+</navigation>

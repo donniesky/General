@@ -3,12 +3,14 @@ package me.donnie.android.apps.general.ui.base
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.OnApplyWindowInsetsListener
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import me.donnie.android.apps.general.util.AdaptScreenUtils
+import me.donnie.android.apps.general.util.ScreenUtils
 
 /**
  * @author: zhongzhan
@@ -29,7 +31,11 @@ abstract class AbstractActivity : AppCompatActivity() {
     }
 
     override fun getResources(): Resources {
-        return AdaptScreenUtils.adaptWidth(super.getResources(), 1080)
+        return if (ScreenUtils.isPortrait()) {
+            AdaptScreenUtils.adaptWidth(super.getResources(), 360)
+        } else {
+            AdaptScreenUtils.adaptWidth(super.getResources(), 640)
+        }
     }
 
     override fun setContentView(view: View?) {
@@ -51,7 +57,11 @@ abstract class AbstractActivity : AppCompatActivity() {
         initData()
     }
 
-    abstract fun initView(savedInstanceState: Bundle?)
+    @LayoutRes
+    abstract fun getLayoutResId(): Int
+    open fun initView(savedInstanceState: Bundle?) {
+        setContentView(getLayoutResId())
+    }
     open fun initData() {}
     open fun initCustomTheme() {}
 
