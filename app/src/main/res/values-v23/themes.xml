@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Platform.Marshmallow.Theme.General" parent="Platform.Lollipop.Theme.General">
+        <item name="colorPrimaryDark">?colorSurface</item>
+        <item name="android:windowLightStatusBar">?isLightTheme</item>
+    </style>
+
+    <style name="Platform.Theme.General" parent="Platform.Marshmallow.Theme.General" />
+</resources>

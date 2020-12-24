@@ -1,23 +1,33 @@
 package me.donnie.android.apps.general.ui.login
 
 import android.os.Bundle
-import android.view.View
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import me.donnie.android.apps.general.R
 import me.donnie.android.apps.general.databinding.FragmentLoginBinding
-import me.donnie.android.apps.general.extension.binding
+import me.donnie.android.apps.general.navigation.NavigationDispatcher
+import me.donnie.android.apps.general.ui.base.DataBindingFragment
+import me.donnie.android.apps.general.util.viewModels
 
 /**
  * @author: zhongzhan
  * @email: zhongzhan@weeget.cn
  * @date: 2020/12/21 14:49
  */
-class LoginFragment : Fragment(R.layout.fragment_login) {
+class LoginFragment : DataBindingFragment<FragmentLoginBinding>() {
 
-    private val binding: FragmentLoginBinding by binding()
+    private val dispatcher: NavigationDispatcher by activityViewModels()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+    private val model: LoginViewModel by viewModels {
+        { LoginViewModel(dispatcher) }
     }
 
+    override fun getLayoutResId(): Int = R.layout.fragment_login
+
+    override fun initView(savedInstanceState: Bundle?) {
+        with(binding) {
+            loginButton.setOnClickListener {
+                model.login()
+            }
+        }
+    }
 }
