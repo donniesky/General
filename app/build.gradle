@@ -38,6 +38,7 @@ def static getDate() {
     return formattedDate
 }
 
+@SuppressWarnings('GrMethodMayBeStatic')
 def computeVersionName(label) {
     return "0.0.${android.defaultConfig.versionCode}-${label}-${date}"
 }
@@ -51,12 +52,9 @@ android {
         jumboMode = true
     }
 
-    dataBinding {
-        enabled = true
-    }
-
-    viewBinding {
-        enabled = true
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
     }
 
     flavorDimensions 'default'
