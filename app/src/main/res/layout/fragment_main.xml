@@ -6,7 +6,7 @@
 
     </data>
 
-    <FrameLayout
+    <!--<FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -21,5 +21,34 @@
             android:textColor="@color/black"
             android:text="MainFragment"/>
 
-    </FrameLayout>
+    </FrameLayout>-->
+
+    <io.flutter.embedding.android.FlutterView
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/flutter_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/progress"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="出错了"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+    </io.flutter.embedding.android.FlutterView>
 </layout>

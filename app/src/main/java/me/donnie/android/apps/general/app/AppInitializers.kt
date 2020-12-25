@@ -3,6 +3,7 @@ package me.donnie.android.apps.general.app
 import android.app.Application
 import android.content.Context
 import androidx.startup.Initializer
+import io.flutter.view.FlutterMain
 
 /**
  * @author: zhongzhan
@@ -15,6 +16,10 @@ class AppInitializer : Initializer<Boolean> {
 
     override fun create(context: Context): Boolean {
         application = context as Application
+        FlutterMain.startInitialization(
+            context,
+            FlutterMain.Settings().apply { logTag = "Module_Flutter" }
+        )
         return true
     }
 
