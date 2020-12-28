@@ -9,6 +9,7 @@ flutter build aar
 popd
 
 echo "== Testing General on Flutter's ${FLUTTER_VERSION} channel =="
-./scripts/recursive.sh clean assembleAlphaRelease
+./scripts/recursive.sh assembleDebug
+./scripts/recursive.sh assembleRelease
 
 echo "-- Success --"
