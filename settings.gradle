@@ -1,8 +1,11 @@
-include ':app', ':module_flutter'
+include ':app'
 
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
         settingsDir,
         'module_flutter/.android/include_flutter.groovy'
 ))
+
 rootProject.name = "General"
+
+include ':module_flutter'
