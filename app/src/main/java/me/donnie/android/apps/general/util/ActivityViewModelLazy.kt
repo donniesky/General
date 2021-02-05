@@ -24,3 +24,15 @@ inline fun <reified VM : ViewModel> ComponentActivity.statedViewModels(
         }
     }
 })
+
+inline fun <reified VM : ViewModel> ComponentActivity.paramViewModels(
+    noinline factoryProducer: (() -> () -> VM)? = null
+) = viewModels<VM>(factoryProducer?.let {
+    {
+        val factory = it()
+        object : androidx.lifecycle.ViewModelProvider.Factory {
+            @Suppress("UNCHECKED_CAST")
+            override fun <T : ViewModel?> create(modelClass: Class<T>) = factory() as T
+        }
+    }
+})

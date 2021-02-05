@@ -1,11 +1,11 @@
 package me.donnie.android.apps.general.ui.login
 
 import android.os.Bundle
-import androidx.fragment.app.activityViewModels
 import me.donnie.android.apps.general.R
 import me.donnie.android.apps.general.databinding.FragmentLoginBinding
 import me.donnie.android.apps.general.navigation.NavigationDispatcher
 import me.donnie.android.apps.general.ui.base.DataBindingFragment
+import me.donnie.android.apps.general.util.activityViewModels
 import me.donnie.android.apps.general.util.viewModels
 
 /**
